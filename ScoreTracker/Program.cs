@@ -2,3 +2,53 @@ using System;
 
 // README.md를 읽고 아래에 코드를 작성하세요.
 Console.WriteLine("코드를 작성하세요.");
+
+class ScoreTracker
+{
+    const int MaxScore = 100;
+    const int MinScore = 0;
+    string subjects;
+    private int score = 0;
+    private int bonus = 0;
+
+    public ScoreTracker(string subjects)
+    {
+        this.subjects = subjects;
+    }
+
+    public void SetScore(int score)
+    {
+        if (score > 100 && score < 0)
+        {
+            Console.WriteLine("점수는 0~100 사이여야 합니다");
+        }
+        else
+        {
+            Console.WriteLine($"점수를 {score}점으로 설정했습니다.");
+        }
+    }
+
+    public void AddBonus(int bonus)
+    {
+        score += bonus;
+        Console.Write($"{bonus}점 보너스 적용! 현재점수: {score}");
+        if (score > 100)
+        {
+            Console.WriteLine(" (최대 점수 도달)");
+        }
+        bonus++;
+    }
+
+    public void ShowScore()
+    {
+        Console.WriteLine($"==={subjects}===");
+        Console.WriteLine($"점수: {score} /{MaxScore} ");
+        Console.WriteLine($"보너스 적용 횟수: {bonus}");
+    }
+
+
+
+}
+
+
+
